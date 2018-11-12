@@ -4,7 +4,7 @@ import re
 
 apiurl = "https://api.berryapi.net/sina"    # berryapi's api
 filelist = os.listdir()
-heads = {'AppKey':"JbGIcCzeFA"}
+heads = {'AppKey':""}
 
 
 def getWeiboUrl(addr):
