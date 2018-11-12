@@ -4,7 +4,7 @@ import re
 
 apiurl = "https://api.berryapi.net/sina"    # berryapi's api
 filelist = os.listdir()
-heads = {'AppKey':""}						# not sure whether it's necessary
+heads = {'AppKey':"JbGIcCzeFA"}
 
 
 def getWeiboUrl(addr):
@@ -22,7 +22,7 @@ def getWeiboUrl(addr):
 
 
 def replacePicAddr(filedir):
-    f = open(filedir)
+    f = open(filedir, encoding='UTF-8')
     texts = []
     for s in f.readlines():
         matchObj = re.match(r'!\[(.*)\].*\((.*?)\)', s, re.M | re.I)
@@ -32,7 +32,7 @@ def replacePicAddr(filedir):
             addr = matchObj.group(2)
             texts += [s.replace(addr, getWeiboUrl(addr))]
     f.close()
-    f = open(filedir, 'r+')
+    f = open(filedir, mode='w', encoding='UTF-8')
     for line in texts:
         f.write(line)
     f.close()
